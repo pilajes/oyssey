@@ -1,38 +1,38 @@
 {
-  "name": "oyssey",
+  "name": "use-mapbox-gl-js-with-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.4",
+    "@react-google-maps/api": "^2.19.2",
+    "mapbox-gl": "^2.14.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-draggable": "^4.4.6",
+    "react-interactions": "^0.0.8",
+    "react-pinch-zoom": "^0.1.4",
+    "react-pinch-zoom-pan": "^1.4.5",
+    "react-resizable": "^3.0.5",
+    "react-resizable-box": "^2.1.0",
+    "react-router-dom": "^6.21.2",
+    "react-scripts": "^4.0.3",
+    "styled-components": "^6.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    "defaults",
+    "not ie 11"
+  ],
+  "author": "Mapbox",
+  "license": "MIT"
 }

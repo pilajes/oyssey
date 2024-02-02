@@ -1,11 +1,70 @@
 .App {
   text-align: center;
+  /* background-image: url(static/Screenshot%202024-01-17%20at%205.43.38%20PM.jpeg); */
+
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Hide overflow to prevent scroll bars */
+  font-family: 'Roboto', sans-serif; 
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 25%;
+  /* background-image: url('static/Screenshot%202024-01-17%20at%205.43.38%20PM.jpeg'); Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Place the pseudo-element below the content */
+}
+
+body::before {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+body::before:active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+  /* Use a suitable font family
+} 
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('static/Screenshot%202024-01-17%20at%205.43.38%20PM.jpeg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden; /* Prevent scrolling */
+/* } */
+
+.background-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* Enable scrolling inside the container */
+}
+
+.content-container {
+  position: relative;
+  z-index: 1; /* Ensure content appears above the background */
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -22,6 +81,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.card-container, .review-card {
+  display: inline-block;
 }
 
 .App-link {

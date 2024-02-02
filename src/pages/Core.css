@@ -1,0 +1,52 @@
+/* In your CSS file */
+
+/* Style for the form group */
+.formGroup {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if there's not enough space */
+    justify-content: space-evenly;
+}
+  
+  /* Style for the container of FormControlLabels */
+  .formControlContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if there's not enough space */
+  }
+  
+  /* Common style for FormControlLabel */
+  .formControlContainer .MuiFormControlLabel-root {
+    margin-right: 20px; /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust as needed */
+  }
+
+  
+  /* In your CSS file */
+
+/* In your CSS file */
+
+/* In your CSS file */
+
+.centeredContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.formGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Add this line */
+}
+
+.formControlContainer2 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Adjust as needed */
+  align-items: center;
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+
