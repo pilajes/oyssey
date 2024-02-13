@@ -1,13 +1,64 @@
 import React, { useState, useEffect } from 'react';
+const generateRandomNumberInRange = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
+const generateRandomNumbers = () => {
+  const randomNumbers = [];
+
+  // Listings
+  const listingValues = [4, 5, 6, 7, 8];
+    const randomNumber = listingValues[Math.floor(Math.random() * listingValues.length)];
+    randomNumbers.push(randomNumber);
+
+  // % Resold <5yrs
+    const annualTurnover = generateRandomNumberInRange(70, 84) / 10; // 7.0% to 8.4%
+    randomNumbers.push(annualTurnover);
+
+  // Turnover
+    const turnover = generateRandomNumberInRange(1, 2); // 1% to 2%
+    randomNumbers.push(turnover);
+
+  // Avg tag
+  const avgTags = ['1.3M', '1.4M', '1.5M', '1.6M'];
+    const avgTag = avgTags[Math.floor(Math.random() * avgTags.length)];
+    randomNumbers.push(avgTag);
+
+  // Avg Bed
+    const avgBed = generateRandomNumberInRange(1, 3); // 1 to 3
+    randomNumbers.push(avgBed);
+
+  // Avg Bath
+    const avgBath = generateRandomNumberInRange(1, 3); // 1 to 3
+    randomNumbers.push(avgBath);
+
+  // Avg sale
+  const avgSales = ['1.2M', '1.3M', '1.4M'];
+    const avgSale = avgSales[Math.floor(Math.random() * avgSales.length)];
+    randomNumbers.push(avgSale);
+
+  // Days to sell
+    const daysToSell = generateRandomNumberInRange(41, 61); // 41 to 61
+    randomNumbers.push(daysToSell);
+
+  // Avg sqft
+    const avgSqft = generateRandomNumberInRange(950, 1900); // 950 to 1900
+    randomNumbers.push(avgSqft);
+
+  // Build yr
+    const buildYear = generateRandomNumberInRange(1994, 2003); // 1994 to 2003
+    randomNumbers.push(buildYear);
+
+  return randomNumbers;
+};
 const RandomNumberDisplay = ({ imageSrc, altText }) => {
   const [randomNumbers, setRandomNumbers] = useState(Array.from({ length: 10 }, () => 0));
   const [additionalRandomNumber, setAdditionalRandomNumber] = useState(0);
-
+  const numbers = generateRandomNumbers();
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Generate 9 random numbers for the screen (replace 100 with your desired range)
-      const newRandomNumbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100));
+      const newRandomNumbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10));
       setRandomNumbers(newRandomNumbers);
 
       // Generate an additional random number
@@ -33,30 +84,30 @@ const RandomNumberDisplay = ({ imageSrc, altText }) => {
           position: 'absolute',
           top: '3%',
           left: '6%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[0]}
+        {numbers[0]}
       </div>
       <div
         style={{
           position: 'absolute',
           top: '40%',
           left: '42%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[1]}
+        {numbers[6]}
       </div>
       <div
         style={{
           position: 'absolute',
           top: '40%',
           left: '62%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[2]}
+        {numbers[7]}
       </div>
       {/* Repeat for the rest of the 7 random numbers */}
       {/* Set exact position for the additional random number */}
@@ -66,40 +117,40 @@ const RandomNumberDisplay = ({ imageSrc, altText }) => {
           top: '49%',
           left: '19%',
           transform: 'translate(-50%, -50%)',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[3]}
+        {numbers[3]}
       </div>
       <div
         style={{
           position: 'absolute',
-          top: '3%',
+          top: '5%',
           left: '31.5%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[4]}
+        {numbers[2]}
       </div>
       <div
         style={{
           position: 'absolute',
           top: '75%',
           left: '56%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[5]}
+        {numbers[8]}
       </div>
       <div
         style={{
           position: 'absolute',
           top: '75%',
           left: '76%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[6]}
+        {numbers[9]}
       </div>
       {/* Repeat for the rest of the 7 random numbers */}
       {/* Set exact position for the additional random number */}
@@ -108,30 +159,30 @@ const RandomNumberDisplay = ({ imageSrc, altText }) => {
           position: 'absolute',
           top: '75%',
           left: '34%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[7]}
+        {numbers[5]}
       </div>
       <div
         style={{
           position: 'absolute',
           top: '5%',
           left: '60%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[8]}
+        {numbers[1]}
       </div>
       <div
         style={{
           position: 'absolute',
           top: '75%',
           left: '14%',
-          fontSize: '30px',
+          fontSize: '15px',
         }}
       >
-        {randomNumbers[9]}
+        {numbers[4]}
       </div>
 
       {/* Repeat for the rest of the 7 random numbers */}

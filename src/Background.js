@@ -1,42 +1,38 @@
-//import './DraggableMap.css';
-import backgroundImage from './static/map.jpeg';
-
+// import './DraggableMap.css';
 import React, { useEffect } from 'react';
 
-const DraggableImage = () => {
+const DraggableImage = ({ imageUrl }) => {
   useEffect(() => {
-    // JavaScript logic
     let _startX = 0,
         _startY = 0,
         _scrollTop = 0,
         _scrollLeft = 0;
 
-    document.onmousedown = OnMouseDown;
-    document.onmouseup = OnMouseUp;
-
-    function OnMouseDown(event) {
-      document.onmousemove = OnMouseMove;
+    const handleMouseDown = (event) => {
+      document.onmousemove = handleMouseMove;
       _startX = event.clientX;
       _startY = event.clientY;
       _scrollTop = document.documentElement.scrollTop;
       _scrollLeft = document.documentElement.scrollLeft;
-    }
+    };
 
-    function OnMouseMove(event) {
+    const handleMouseMove = (event) => {
       window.scrollTo({
-          left: _scrollLeft + (_startX - event.clientX),
-          top: _scrollTop + (_startY - event.clientY)
+        left: _scrollLeft + (_startX - event.clientX),
+        top: _scrollTop + (_startY - event.clientY),
       });
-    }
+    };
 
-    function OnMouseUp() {
+    const handleMouseUp = () => {
       document.onmousemove = null;
-    }
+    };
+
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
 
     return () => {
-      // Clean up code (optional)
-      document.onmousedown = null;
-      document.onmouseup = null;
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
     };
   }, []); // Empty dependency array to run effect only once on mount
 
@@ -45,7 +41,7 @@ const DraggableImage = () => {
       <div id="dragable_content">
         <img
           draggable="false"
-          src={'https://griotstorage.blob.core.windows.net/images/Screenshot 2024-01-17 at 5.43.38 PM.jpeg'}
+          src={imageUrl}
           style={{ height: '100rem' }}
           alt="World Map"
         />
@@ -55,4 +51,3 @@ const DraggableImage = () => {
 };
 
 export default DraggableImage;
-

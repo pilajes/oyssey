@@ -12,8 +12,26 @@ import Switch from '@mui/material/Switch';
 import Radio from '@mui/material/Radio';
 import icons from '../static/icons.jpg';
 import icons2 from '../static/icons 2.jpg';
+import improvedIcons from '../static/improvedIcons.jpg'
 import icons3 from '../static/icons 3.jpg';
 import RandomNumberDisplay from '../Random.js';
+import map2 from '../static/map2.png'
+import condo from '../static/condo.png'
+import singleFamily from '../static/singleFamily.png'
+import multiFamily from '../static/multi.png'
+import publicProjects from '../static/publicProjects.png'
+import demographics from '../static/demographic.png'
+import political from '../static/political.png' 
+import daily from '../static/dailyCommute.png'
+import daily2 from '../static/dailyCommute2.png'
+import daily3 from '../static/dailyCommute3.png'
+import Slider from '@mui/material/Slider';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import EventIcon from '@mui/icons-material/Event';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useNavigate} from 'react-router-dom'; // Import useHistory hook for navigation
 
 const Core = () => {
   const [zipCode, setZipCode] = useState('');
@@ -21,35 +39,118 @@ const Core = () => {
   const [showToggles2, setShowToggles2] = useState(false);
   const [showToggles3, setShowToggles3] = useState(false);
   const [condoToggle, setCondoToggle] = useState(false);
+  const [allListingsToggle, setAllListingsToggle] = useState(true);
+  const [dailyCommuteToggle, setDailyCommuteToggle] = useState(false);
+  const [dailyCommuteToggle2, setDailyCommuteToggle2] = useState(false);
+  const [dailyCommuteToggle3, setDailyCommuteToggle3] = useState(false);
   const [singleFamilyToggle, setSingleFamilyToggle] = useState(false);
   const [multiFamilyToggle, setMultiFamilyToggle] = useState(false);
   const [politicalToggle, setPoliticalToggle] = useState(false);
   const [demographicToggle, setDemographicToggle] = useState(false);
   const [publicProjectsToggle, setPublicProjectsToggle] = useState(false);
   const [whatHappened2008Toggle, setWhatHappened2008Toggle] = useState(false);
-  const [yearYearAppreciationToggle, setYearYearAppreciationToggle] = useState(false);
+  const [yearYearAppreciationToggle, setYearYearAppreciationToggle] = useState(true);
 
-  const handlePoliticalToggle = () => setPoliticalToggle(!politicalToggle);
-  const handleDemographicToggle = () => setDemographicToggle(!demographicToggle);
-  const handlePublicProjectsToggle = () => setPublicProjectsToggle(!publicProjectsToggle);
-  const handleWhatHappened2008Toggle = () => setWhatHappened2008Toggle(!whatHappened2008Toggle);
+  const [bottomNavValue, setBottomNavValue] = useState(-1);
+  const navigate = useNavigate();
+
+  const handleBottomNavChange = (event, newValue) => {
+    setBottomNavValue(newValue);
+    switch (newValue) {
+      case 0:
+        navigate('/listview'); // Navigate to ListView page
+        break;
+      case 1:
+        navigate('/profile'); // Navigate to Profile page
+        break;
+      case 2:
+        navigate('/upcomingtours'); // Navigate to Upcoming Tours page
+        break;
+      default:
+        break;
+    }
+  };
+
+
+
+  const handleDailyCommuteToggle = () => {
+    setDailyCommuteToggle(!dailyCommuteToggle);
+    if (!dailyCommuteToggle) {
+      setDailyCommuteToggle2(false);
+      setDailyCommuteToggle3(false);
+    }
+  };
+
+  const handleDailyCommuteToggle2 = () => {
+    setDailyCommuteToggle2(!dailyCommuteToggle2);
+    if (!dailyCommuteToggle2) {
+      setDailyCommuteToggle3(false);
+    }
+  };
+
+  const handleDailyCommuteToggle3 = () => {
+    setDailyCommuteToggle3(!dailyCommuteToggle3);
+  };
+
+  const handlePoliticalToggle = () => {
+    setPoliticalToggle(!politicalToggle);
+    setAllListingsToggle(false);
+    setYearYearAppreciationToggle(false);
+    setCondoToggle(false);
+    setSingleFamilyToggle(false);
+    setMultiFamilyToggle(false);
+    setDemographicToggle(false);
+    setPublicProjectsToggle(false);
+  }
+  const handleDemographicToggle = () => {
+    setDemographicToggle(!demographicToggle);
+    setAllListingsToggle(false);
+    setYearYearAppreciationToggle(false);
+    setCondoToggle(false);
+    setSingleFamilyToggle(false);
+    setMultiFamilyToggle(false);
+    setPoliticalToggle(false);
+    setPublicProjectsToggle(false);
+  }
+  const handlePublicProjectsToggle = () => {
+    setPublicProjectsToggle(!publicProjectsToggle);
+    setAllListingsToggle(false);
+    setYearYearAppreciationToggle(false);
+    setCondoToggle(false);
+    setSingleFamilyToggle(false);
+    setMultiFamilyToggle(false);
+    setPoliticalToggle(false);
+    setDemographicToggle(false);
+  }
   const handleYearYearAppreciationToggle = () => setYearYearAppreciationToggle(!yearYearAppreciationToggle);
 
+  const handleAllListingsToggle = () => {
+    setAllListingsToggle(!allListingsToggle);
+    setCondoToggle(false);
+    setSingleFamilyToggle(false);
+    setMultiFamilyToggle(false);
+  };
   const handleCondoToggle = () => {
     setCondoToggle(!condoToggle);
+    setAllListingsToggle(false);
+    setSingleFamilyToggle(false);
+    setMultiFamilyToggle(false);
   };
 
   const handleSingleFamilyToggle = () => {
     setSingleFamilyToggle(!singleFamilyToggle);
+    setAllListingsToggle(false);
+    setCondoToggle(false);
+    setMultiFamilyToggle(false);
   };
 
   const handleMultiFamilyToggle = () => {
     setMultiFamilyToggle(!multiFamilyToggle);
+    setAllListingsToggle(false);
+    setCondoToggle(false);
+    setSingleFamilyToggle(false);
   };
-  const [selectedValue, setSelectedValue] = React.useState('a');
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
+
   const handleZipCodeChange = (e) => {
     setZipCode(e.target.value);
   };
@@ -67,7 +168,7 @@ const Core = () => {
     <div style={{ position: 'relative' }}>
       <input
         type="text"
-        placeholder="Enter a zip code to get started"
+        placeholder="94118"
         value={zipCode}
         onChange={handleZipCodeChange}
         style={{
@@ -81,18 +182,27 @@ const Core = () => {
         }}
       />
 
-      <button
+<button
         onClick={() => setShowToggles(!showToggles)}
         style={{
           position: 'fixed',
           top: '50px',
-          left: '60%',
-          padding: '5px',
+          left: '84%',
+          transform: 'translateX(-50%)',
+          padding: '8px 16px', // Increase padding for better touch target
           fontSize: '18px',
+          fontWeight: 'bold', // Bold text
           zIndex: 1,
+          backgroundColor: '#fff', // White background
+          color: '#000', // Black text
+          borderRadius: '8px',
+          border: 'none',
+          cursor: 'pointer',
+          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+          outline: 'none', // Remove focus outline
         }}
       >
-        Daily Commutes
+        Commutes
       </button>
 
       <button
@@ -102,27 +212,43 @@ const Core = () => {
           top: '50px',
           left: '20%',
           transform: 'translateX(-50%)',
-          padding: '5px',
+          padding: '8px 16px', // Increase padding for better touch target
           fontSize: '18px',
+          fontWeight: 'bold',
           zIndex: 1,
+          backgroundColor: '#fff', // White background
+          color: '#000', // Black text
+          borderRadius: '8px',
+          border: 'none',
+          cursor: 'pointer',
+          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+          outline: 'none', // Remove focus outline
         }}
       >
-        Filters & Overlays
+        Filters/Overlays
       </button>
 
       <button
         onClick={() => setShowToggles3(!showToggles3)}
         style={{
           position: 'fixed',
-          top: '85px',
-          left: '49%',
+          top: '50px',
+          left: '52%',
           transform: 'translateX(-50%)',
-          padding: '5px',
+          padding: '8px 16px', // Increase padding for better touch target
           fontSize: '18px',
+          fontWeight: 'bold', // Bold text
           zIndex: 1,
+          backgroundColor: '#fff', // White background
+          color: '#000', // Black text
+          borderRadius: '8px',
+          border: 'none',
+          cursor: 'pointer',
+          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+          outline: 'none', // Remove focus outline
         }}
       >
-        Map Area Stats
+       Stats
       </button>
 
       {showToggles && (
@@ -145,32 +271,22 @@ const Core = () => {
           >
             <div className="formControlContainer">
               <FormControlLabel
-                control={<Switch defaultChecked size="large" />}
-                label={
-                  <>
-                    <img src={icons} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />
-                  </>
-                }
+                control={<Switch checked={dailyCommuteToggle} onChange={handleDailyCommuteToggle} size="large" />}
+                label={<img src={icons} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />}
               />
             </div>
             <div className="formControlContainer">
               <FormControlLabel
-                control={<Switch defaultChecked size="large" />}
-                label={
-                  <>
-                    <img src={icons} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />
-                  </>
-                }
+                control={<Switch checked={dailyCommuteToggle2 && dailyCommuteToggle} onChange={handleDailyCommuteToggle2} size="large" />}
+                label={<img src={icons} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />}
+                disabled={!dailyCommuteToggle}
               />
             </div>
             <div className="formControlContainer">
               <FormControlLabel
-                control={<Switch defaultChecked size="large" />}
-                label={
-                  <>
-                    <img src={icons} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />
-                  </>
-                }
+                control={<Switch checked={dailyCommuteToggle3 && dailyCommuteToggle2 && dailyCommuteToggle} onChange={handleDailyCommuteToggle3} size="large" />}
+                label={<img src={icons} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />}
+                disabled={!dailyCommuteToggle2 || !dailyCommuteToggle}
               />
             </div>
           </FormGroup>
@@ -197,7 +313,9 @@ const Core = () => {
           >
             <div className="formControlContainer">
               <div>
-                <img src={icons2} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />
+                <img src={improvedIcons} alt="Bike" style={{ marginRight: '5px', width: '90%' }} />
+                <div style={{ display: 'flex', justifyContent: 'space-between', width: '80%', margin: '20px auto' }}>
+            </div>
               </div>
             </div>
             <FormGroup>
@@ -205,6 +323,13 @@ const Core = () => {
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{ display: 'flex', marginBottom: '10px' }}>
+                    <FormGroup>
+                        {/* <FormControlLabel
+                          control={<Switch checked={allListingsToggle} onChange={handleAllListingsToggle} />}
+                          label="All listings"
+                          style={{ marginRight: '20px' }}
+                        /> */}
+                      </FormGroup>
                       <FormGroup>
                         <FormControlLabel
                           control={<Switch checked={condoToggle} onChange={handleCondoToggle} />}
@@ -251,14 +376,14 @@ const Core = () => {
                     <div style={{ display: 'flex' }}>
                       <FormGroup>
                         <FormControlLabel
-                          control={<Switch checked={whatHappened2008Toggle} onChange={handleWhatHappened2008Toggle} />}
+                          control={<Switch checked={false} />}
                           label="What happened in 2008"
                           style={{ marginRight: '20px' }}
                         />
                       </FormGroup>
                       <FormGroup>
                         <FormControlLabel
-                          control={<Switch checked={yearYearAppreciationToggle} onChange={handleYearYearAppreciationToggle} />}
+                          control={<Switch checked={yearYearAppreciationToggle} />}
                           label="Year/Year Appreciation"
                         />
                       </FormGroup>
@@ -298,7 +423,35 @@ const Core = () => {
         </>
       )}
 
-      <Background />
+      <div>
+        {politicalToggle ? (
+          <Background imageUrl={political} />
+        ) : condoToggle ? (
+          <Background imageUrl={condo} />
+        ) : singleFamilyToggle ? (
+          <Background imageUrl={singleFamily} />
+        ) : multiFamilyToggle ? (
+          <Background imageUrl={multiFamily} />
+        ) : demographicToggle ? (
+          <Background imageUrl={demographics} />
+        ) : publicProjectsToggle ? (
+          <Background imageUrl={publicProjects} />
+        ) : dailyCommuteToggle ? (
+          <Background imageUrl={daily} />
+        ) : dailyCommuteToggle2 ? (
+          <Background imageUrl={daily2} />
+        ) : dailyCommuteToggle3 ? (
+          <Background imageUrl={daily3} />
+        ) :(
+          <Background imageUrl={map2} />
+        )}
+      </div>
+    {/* Bottom Navigation Bar */}
+    <BottomNavigation value={bottomNavValue} onChange={handleBottomNavChange} showLabels style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#f0f0f0' }}>
+      <BottomNavigationAction label="List View" icon={<ListAltIcon />} />
+      <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} />
+      <BottomNavigationAction label="Upcoming Tours" icon={<EventIcon />} />
+    </BottomNavigation>
     </div>
   );
 };
