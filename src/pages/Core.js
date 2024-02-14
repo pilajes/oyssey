@@ -449,7 +449,7 @@ const Core = () => {
     {/* Bottom Navigation Bar */}
     <BottomNavigation value={bottomNavValue} onChange={handleBottomNavChange} showLabels style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#f0f0f0' }}>
       <BottomNavigationAction label="List View" icon={<ListAltIcon />} />
-      <BottomNavigationAction label="Profile" icon={<AccountCircleIcon />} />
+      <BottomNavigationAction label="My Agent" icon={<AccountCircleIcon />} />
       <BottomNavigationAction label="Upcoming Tours" icon={<EventIcon />} />
     </BottomNavigation>
     </div>
