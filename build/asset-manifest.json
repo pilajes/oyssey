@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c9fb9e7f.chunk.css",
+    "main.js": "/static/js/main.b3497389.chunk.js",
+    "main.js.map": "/static/js/main.b3497389.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.06d5576f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.06d5576f.js.map",
+    "static/css/2.f731951b.chunk.css": "/static/css/2.f731951b.chunk.css",
+    "static/js/2.d0bdcf0c.chunk.js": "/static/js/2.d0bdcf0c.chunk.js",
+    "static/js/2.d0bdcf0c.chunk.js.map": "/static/js/2.d0bdcf0c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f731951b.chunk.css.map": "/static/css/2.f731951b.chunk.css.map",
+    "static/css/main.c9fb9e7f.chunk.css.map": "/static/css/main.c9fb9e7f.chunk.css.map",
+    "static/js/2.d0bdcf0c.chunk.js.LICENSE.txt": "/static/js/2.d0bdcf0c.chunk.js.LICENSE.txt",
+    "static/media/condo.5d5703f7.png": "/static/media/condo.5d5703f7.png",
+    "static/media/dailyCommute.85b6cc5c.png": "/static/media/dailyCommute.85b6cc5c.png",
+    "static/media/dailyCommute2.7f615324.png": "/static/media/dailyCommute2.7f615324.png",
+    "static/media/dailyCommute3.f6a4a6b2.png": "/static/media/dailyCommute3.f6a4a6b2.png",
+    "static/media/demographic.dfcd4baa.png": "/static/media/demographic.dfcd4baa.png",
+    "static/media/house1.3ab560c8.webp": "/static/media/house1.3ab560c8.webp",
+    "static/media/house2.8849bc98.webp": "/static/media/house2.8849bc98.webp",
+    "static/media/house3.06eecf38.webp": "/static/media/house3.06eecf38.webp",
+    "static/media/icons 2.434075b1.jpg": "/static/media/icons 2.434075b1.jpg",
+    "static/media/icons 3.f1296e28.jpg": "/static/media/icons 3.f1296e28.jpg",
+    "static/media/icons.e2ba5913.jpg": "/static/media/icons.e2ba5913.jpg",
+    "static/media/map2.343b317c.png": "/static/media/map2.343b317c.png",
+    "static/media/multi.99e33dde.png": "/static/media/multi.99e33dde.png",
+    "static/media/political.e1651d26.png": "/static/media/political.e1651d26.png",
+    "static/media/publicProjects.de15707c.png": "/static/media/publicProjects.de15707c.png",
+    "static/media/singleFamily.9d981986.png": "/static/media/singleFamily.9d981986.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06d5576f.js",
+    "static/css/2.f731951b.chunk.css",
+    "static/js/2.d0bdcf0c.chunk.js",
+    "static/css/main.c9fb9e7f.chunk.css",
+    "static/js/main.b3497389.chunk.js"
+  ]
+}
