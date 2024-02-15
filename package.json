@@ -13,6 +13,7 @@
     "react-dom": "^17.0.2",
     "react-draggable": "^4.4.6",
     "react-interactions": "^0.0.8",
+    "react-native": "^0.73.4",
     "react-pinch-zoom": "^0.1.4",
     "react-pinch-zoom-pan": "^1.4.5",
     "react-resizable": "^3.0.5",
@@ -22,10 +23,10 @@
     "styled-components": "^6.1.8"
   },
   "scripts": {
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,7 +40,7 @@
   "author": "Mapbox",
   "license": "MIT",
   "devDependencies": {
-    "gh-pages": "^6.1.1",
-    "@babel/plugin-transform-private-property-in-object": "^7.23.4"
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
+    "gh-pages": "^6.1.1"
   }
 }
